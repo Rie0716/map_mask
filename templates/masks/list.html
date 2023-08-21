@@ -1,0 +1,25 @@
+{% extends "layouts/default.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <header>
+        <a href="/masks/">トップページ</a><br>
+        <a href="/masks/create/">新規登録</a><br>
+        <a href="/masks/data/">jsonデータ確認</a>
+    </header>
+    <main>
+        <ul>
+            {% for mask in masks %}
+                <li>
+                    <a href="/masks/detail/{{ mask.id }}/">
+                        【{{ mask.id }}】 {{ mask.store }}：{{ mask.status }}（{{ mask.update_at }}）※{{ mask.difference }}日以上前の投稿
+                    </a>
+                </li>
+            {% empty %}
+                <li>新しい投稿はありません</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
