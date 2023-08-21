@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, viewport-fit=cover">
+        <meta name="author" content="Rie Wakabayashi">
+        
+        <title>在庫シェアマップ『”アレ”、ある？』</title>
+        <!--polyfillの位置はMaps JavaScript APIサンプルを参考に設置-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/html5reset.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/modaal.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/top_pages.css' %}" />
+        
+        <!--googlemap表示のscript-->
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places&callback=initMap&v=weekly"></script>
+    </head>
+    
+    <body>
+        <!--modaal表示のトリガー-->
+        <a href="#popup" class="show"></a>
+        <header>
+            <h1>在庫状況シェアマップ『“アレ”、ある？』</h1>
+            <div class="introduction">
+                <h2>＜『“アレ”、ある？』って何？なにができるの？＞</h2>
+                <p>
+                    日常生活の中で<span>”今すぐあの商品が欲しいとき”</span>に<span>「一目でどの店舗に在庫があるのか知りたいなぁ…」</span>と思ったこと、ありませんか？<br>
+                    『“アレ”、ある？』は、<strong>店舗ごとの在庫状況をユーザーが簡単に検索・共有できるシェアマップ</strong>です！<br>
+                    ※現在、マスクの在庫状況のみ検索・共有が可能です。
+                </p>
+            </div>
+            <div class="method">
+                <h2>＜利用方法＞</h2>
+                <ol>
+                    <li>Googleマップを自由に動かしたり検索ボックスを使ったりして、お住まいの地域にある店舗ごとのマスクの在庫状況が一目で分かります<img src="/static/images/method/search.png" alt="マップ検索"></li>
+                    <li>自分が実際に店舗で把握した在庫状況をみんなにシェアしたいときは、該当店舗のアイコンを選択して”投稿”リンクをクリック<img src="/static/images/method/click.png" alt="クリック"></li>
+                    <li>当てはまる在庫状況のボタンをクリックするだけで、最新の在庫情報を他のユーザーにも簡単にシェアすることができます<img src="/static/images/method/share.png" alt="シェア"></li>
+                </ol>
+            </div>
+            <div class="alert">
+                <h2>＜注意事項＞</h2>
+                <p>
+                    ユーザーの皆様からご提供いただいた情報を基にマスクの在庫状況を表示しているため、実際の店頭販売状況と異なる場合があります。<br>
+                </p>
+            </div>
+            <p>※本サービスの利用規約は<a href="/masks/rule/">こちら</a>から確認できます。</p>
+            <div class="icon_mean">
+                <ul>
+                    <li class="blue">：在庫あり</li>
+                    <li class="yellow">：在庫少なめ</li>
+                    <li class="red">：在庫無し</li>
+                    <li class="gray">：在庫不明</li>
+                </ul>
+            </div>
+        </header>
+        
+        <main>
+            <!--google Mapの検索窓表示-->
+            <input id="pac-input" class="controls" type="text" placeholder="店舗名や住所などを入力して検索" />
+            <!--google Map表示-->
+            <div id="map"></div>
+        </main>
+        
+        <!--modaalウィンドウ表示内容-->
+        <div id="popup">
+            <h3>在庫状況シェアマップ『“アレ”、ある？』へようこそ！</h3>
+            <p class="popup_text">
+                『“アレ”、ある？』は、日常生活で必要なアイテムの各店舗における在庫状況を皆で簡単に共有し、<br>
+                検索することのできるシェアマップです！現在は、マスクの在庫状況のみ検索・共有が可能です。<br>
+                必ず、下記の注意事項及び利用規約をお読みいただき、同意いただける方のみご利用ください。
+            </p>
+            <p class="popup_alert">
+                【注意事項】<br>
+                皆様からご提供いただいた情報を基に在庫状況を表示しているため<br>
+                実際の店頭販売状況と異なる場合があります。
+            </p>
+            <div class="popup_confirm">
+                <label for="checkBtn"><input id="checkBtn" type="checkbox">注意事項及び<a href="/masks/rule/">利用規約</a>をすべて読み、同意します。</label><br>
+                <input id="submitBtn" type="submit" value="利用する" disabled="disabled">
+            </div>
+        </div>
+        
+        <!--jquery CDN-->
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <!--Modaal-->
+        <script src="{% static 'js/modaal.min.js' %}"></script>
+        <!--Modaalを使ったポップアップウィンドウのscript-->
+        <script src="{% static 'js/popup.js' %}"></script>
+        <!--googlemap表示内容のscript-->
+        <script src="{% static 'js/top_page.js' %}"></script>
+    </body>
+</html>
