@@ -26,7 +26,7 @@
 
 ## 主な機能
 #### ①	本サービスを利用したことに起因するトラブルを避けるため、免責事項等の同意後にサービスの利用が可能となる導線作成
-![image](https://github.com/Rie0716/map_mask/assets/137138199/7c27cdf7-4916-4082-99cf-ab5db8db4cfc)
+![image](https://github.com/Rie0716/map_mask/assets/137138199/25b5039e-0caf-428a-a7b1-149864d382b3)
 
 #### ②	ユーザビリティを考慮し、GoogleMap上で自分の所在地に近い店舗検索が可能
 ![image](https://github.com/Rie0716/map_mask/assets/137138199/6bb9ce82-18ad-4a97-a5c5-0eefcfea45eb)
