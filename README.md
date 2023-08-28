@@ -60,9 +60,6 @@
 ### データベース
 - MySQL（MariaDB10.5）
 
-### インフラ
-- AWS
-
 ### REST API
 - JSON
 
